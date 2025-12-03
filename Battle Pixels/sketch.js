@@ -465,7 +465,7 @@ function playerChooseAction() {
     }
 
   } else if (action === "Heal") {
-    // 🔹 HEAL IS PURELY RESTORATIVE NOW
+// HEAL IS PURELY RESTORATIVE NOW
     base = 6 + floor(random(0, 4));  // base heal amount
     base = max(base, 1);
     value = applyD20Outcome(base, roll);
