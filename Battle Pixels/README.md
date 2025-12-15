@@ -46,7 +46,15 @@ At this stage, I took feedback from friends and professors into consideration to
 
 ## Day 4
 ### First Draft
+In this first draft, I organized the game’s core mechanics as shown in the flow. Although it is a bit complex, I used ChatGPT to help in areas where I got stuck—such as separating characters from the selection wheel and fixing bugs that caused the player and enemy images to appear on the same plane.
 
 ![Draft1](Fonts/draft_1.jpg)
 ![Draft2](Fonts/Draft_1.1.jpg) 
 ![Draft3](Fonts/Draft_1.3.jpg) 
+
+## Day 5
+### Final 1.1 ()
+
+![Draft1](Fonts/Screenshot-2025-12-15-at-3.42.23 PM.jpg)
+![Draft2](Fonts/Screenshot-2025-12-15-at-3.42.33 PM.jpg) 
+![Draft3](Fonts/Screenshot-2025-12-15-at-3.44.18 PM.jpgg) 
