@@ -29,6 +29,6 @@ My first step towards developing My wizard action RPG will be to research some g
 Those games are the following:
 
 ![Pokémon Ranger: Guardian Signs](Fonts/rangers_2.jpg)
-![Rick and Morty: Pocket Mortys](Fonts/r&M_rpg.jpeg)
+![Rick and Morty: Pocket Mortys](Fonts/r&M_rpg.jpg)
 ![Alt text for the image](path/to/image.png)
 ![Alt text for the image](path/to/image.png)
