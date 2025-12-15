@@ -33,11 +33,11 @@ function preload() {
 
   // Wizard sprites (change paths to match your files)
   imgArcane = loadImage('image/wizard_LVL1-[Converted].png');
-  //imgPyro   = loadImage('image/wizard_pyro.png');
-  //imgDruid  = loadImage('image/wizard_druid.png');
+  imgPyro   = loadImage('image/wizard_LVL2-[Converted].png');
+  imgDruid  = loadImage('image/wizard_LVL3-[Converted].png');
 
   // Enemy sprite
- // imgEnemy  = loadImage('image/wizard_enemy.png');
+  imgEnemy  = loadImage('image/enemi_wiz.png');
 }
 
 // --- SETUP ---
@@ -61,14 +61,14 @@ function setup() {
       color: [255, 120, 80],
       attack: 7,
       magic: 11,
-      //sprite: imgPyro
+      sprite: imgPyro
     },
     {
       name: "Druid",
       color: [90, 200, 120],
       attack: 5,
       magic: 8,
-      //sprite: imgDruid
+      sprite: imgDruid
     }
   ];
 }
@@ -366,7 +366,7 @@ function startBattleWith(selectedChar) {
     attack: 8,
     magic: 12,
     color: [200, 60, 80],
-    //sprite: imgEnemy
+    sprite: imgEnemy
   };
 
   battleMenuIndex = 0;
