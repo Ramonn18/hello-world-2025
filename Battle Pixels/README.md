@@ -42,4 +42,11 @@ Those games are the following:
 ### Game Flow
 At this stage, I took feedback from friends and professors into consideration to create a flow that helped me visualize the different stages of the game. This process clarified my priorities and established the game’s base structure.
 
-![Alt text for the image](Fonts/IMG_1501.jpg) 
+![Alt text for the image](Fonts/IMG_1501.jpg) '
+
+## Day 4
+### First Draft
+
+![Draft1](Fonts/draft_1.png)
+![Draft2](Fonts/Draft_1.1.png)
+![Draft3](Fonts/Draft_1.3.png) 
