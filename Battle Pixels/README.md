@@ -57,4 +57,4 @@ In this first draft, I organized the game’s core mechanics as shown in the flo
 
 ![Draft1](Fonts/Screenshot-2025-12-15-at-3.42.23 PM.jpg)
 ![Draft2](Fonts/Screenshot-2025-12-15-at-3.42.33 PM.jpg) 
-![Draft3](Fonts/Screenshot-2025-12-15-at-3.44.18 PM.jpgg) 
+![Draft3](Fonts/Screenshot-2025-12-15-at-3.44.18 PM.jpg) 
