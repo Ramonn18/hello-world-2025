@@ -33,3 +33,12 @@ Those games are the following:
 ![Pokémon Ranger: Guardian Signs](Fonts/rangers_2.jpg)
 ![Rick and Morty: Pocket Mortys](Fonts/r&M_rpg.jpg)
 ![Alt text for the image](Fonts/stardew.jpg) 
+ 
+ These games are what inspired me to create this project. Ever since the first Harry Potter game came out—yes Harry potter Deathly Hallows part 1-I’ve wanted to make a wizard game of my own. I’ve always loved pixel games, and this felt like the perfect opportunity to create a story while putting my skills into practice.
+
+(Now I undertand the struggle of game devs)
+
+## Day 3
+### Game Flow
+
+![Alt text for the image](Fonts/IMG_1501.jpg) 
