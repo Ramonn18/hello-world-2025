@@ -22,4 +22,4 @@ Beyond coding, the process cultivates a wide range of valuable, transferable ski
 
 #### Understanding and applying control structures
 
-I also love games—especially those with rich storytelling and compelling RPG premises.
+* I also love games—especially those with rich storytelling and compelling RPG premises.
