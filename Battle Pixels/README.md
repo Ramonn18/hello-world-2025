@@ -8,7 +8,6 @@ Your hunt begins in a realm where neither good nor evil will stand in your way�
 
 BECOME THE GRaATEST WIZZARD OF ALL TIME!
 
-## Day 2
 ### Why do I want to make a game?
 
 It encourages persistence in tackling complex problems and learning new concepts.
@@ -23,3 +22,12 @@ Beyond coding, the process cultivates a wide range of valuable, transferable ski
 * #### Understanding and applying control structures
 
 I also love games—especially those with rich storytelling and compelling RPG premises.
+
+## Day 2
+### My first step
+My first step towards developing My wizard action RPG will be to research some games with similar structure.
+Those games are the following;
+![Pokémon Ranger: Guardian Signs](Fonts/rangers_2.jpg)
+![Alt text for the image](path/to/image.png)
+![Alt text for the image](path/to/image.png)
+![Alt text for the image](path/to/image.png)
