@@ -28,7 +28,8 @@ I also love games—especially those with rich storytelling and compelling RPG p
 My first step towards developing My wizard action RPG will be to research some games with similar structure.
 Those games are the following:
 
+Pokémon Ranger: Guardian Signs-Rick and Morty: Pocket Mortys-
+
 ![Pokémon Ranger: Guardian Signs](Fonts/rangers_2.jpg)
 ![Rick and Morty: Pocket Mortys](Fonts/r&M_rpg.jpg)
-![Alt text for the image](path/to/image.png)
-![Alt text for the image](path/to/image.png)
+![Alt text for the image](Fonts/stardew.jpg) 
