@@ -47,6 +47,6 @@ At this stage, I took feedback from friends and professors into consideration to
 ## Day 4
 ### First Draft
 
-![Draft1](Fonts/draft_1.png){:width="304px"}
-![Draft2](Fonts/Draft_1.1.png)
-![Draft3](Fonts/Draft_1.3.png) 
+![Draft1](Fonts/draft_1.jpg)
+![Draft2](Fonts/Draft_1.1.jpg) 
+![Draft3](Fonts/Draft_1.3.jpg) 
