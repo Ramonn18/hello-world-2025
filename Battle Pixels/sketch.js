@@ -1,7 +1,7 @@
 // --- CONFIG ---
 const SCALE = 3;                 // How large to scale the pixel canvas
-const VIRTUAL_WIDTH = 240;       // Virtual resolution width (like old handhelds)
-const VIRTUAL_HEIGHT = 144;      // Virtual resolution height
+const VIRTUAL_WIDTH = 440;       // Virtual resolution width (like old handhelds)
+const VIRTUAL_HEIGHT = 240;      // Virtual resolution height
 
 const BASE_HP = 230;
 const BASE_MP = 160;
@@ -23,6 +23,30 @@ let battleMenuIndex = 0;
 let battleState = "playerChoice"; // "playerChoice" | "win" | "lose"
 let battleMessage = "";
 let lastRoll = null;             // D20 result for UI
+
+// --- JIGGLE (UPDATED) ---
+let playerJiggle = { t: 0, amp: 0, dir: 1, total: 0 };
+let enemyJiggle  = { t: 0, amp: 0, dir: 1, total: 0 };
+
+function triggerJiggle(target, dir = 1, amp = 3, frames = 60) {
+  // "once per attack": just start a single 1-second jiggle on the HIT target
+  target.t = frames;
+  target.total = frames;
+  target.amp = amp;
+  target.dir = dir;
+}
+
+function getJiggleOffset(target) {
+  if (target.t <= 0) return 0;
+
+  // alternate +/- each frame, smoothly decay over the duration
+  const phase = (target.t % 2 === 0) ? 1 : -1;
+  const decay = target.t / max(target.total, 1); // 1..0
+  const x = phase * target.dir * target.amp * decay;
+
+  target.t--;
+  return x;
+}
 
 // --- ASSET LOADING ---
 function preload() {
@@ -198,14 +222,18 @@ function drawBattle() {
     background(5, 25, 48);
   }
 
+  // Jiggle offsets (only applied to whoever is currently "hit")
+  const pJ = getJiggleOffset(playerJiggle);
+  const eJ = getJiggleOffset(enemyJiggle);
+
   // Player mage (left)
   if (player) {
-    drawMageSprite(60, VIRTUAL_HEIGHT - 55, player);
+    drawMageSprite(60 + pJ, VIRTUAL_HEIGHT - 55, player);
   }
 
   // Enemy mage (right)
   if (enemy) {
-    drawMageSprite(VIRTUAL_WIDTH - 60, VIRTUAL_HEIGHT - 55, enemy);
+    drawMageSprite(VIRTUAL_WIDTH - 60 + eJ, VIRTUAL_HEIGHT - 55, enemy);
   }
 
   // HP and Mana bars
@@ -373,6 +401,11 @@ function startBattleWith(selectedChar) {
   battleState = "playerChoice";
   battleMessage = "A " + enemy.name + " appears!";
   lastRoll = null;
+
+  // Reset jiggle timers
+  playerJiggle.t = 0;
+  enemyJiggle.t = 0;
+
   gameState = "battle";
 }
 
@@ -442,10 +475,15 @@ function playerChooseAction() {
 
     if (roll <= 5) {
       battleMessage = "You swing your staff, but miss! (roll " + roll + ")";
+      // miss => no hit jiggle
     } else if (roll <= 15) {
       battleMessage = "You strike for " + value + " dmg. (partial, roll " + roll + ")";
+      // HIT => enemy jiggles for ~1 second
+      triggerJiggle(enemyJiggle, 1, 3, 60);
     } else {
       battleMessage = "You hit HARD for " + value + " dmg! (roll " + roll + ")";
+      // HIT => enemy jiggles for ~1 second (stronger)
+      triggerJiggle(enemyJiggle, 1, 4, 60);
     }
 
   } else if (action === "Fireball") {
@@ -458,10 +496,13 @@ function playerChooseAction() {
 
     if (roll <= 5) {
       battleMessage = "Your fireball fizzles out... (roll " + roll + ")";
+      // miss => no hit jiggle
     } else if (roll <= 15) {
       battleMessage = "Fireball scorches for " + value + " dmg. (partial, roll " + roll + ")";
+      triggerJiggle(enemyJiggle, 1, 3, 60);
     } else {
       battleMessage = "CRITICAL FIREBALL! " + value + " dmg! (roll " + roll + ")";
+      triggerJiggle(enemyJiggle, 1, 4, 60);
     }
 
   } else if (action === "Heal") {
@@ -509,6 +550,10 @@ function enemyTurn() {
     player.hp -= dmg;
     player.hp = max(player.hp, 0);
     battleMessage += " Enemy casts DARK BOLT for " + dmg + " dmg!";
+
+    // HIT => player jiggles for ~1 second
+    triggerJiggle(playerJiggle, -1, 3, 60);
+
   } else {
     // Basic attack (no mana cost)
     let dmg = enemy.attack + floor(random(-1, 2));
@@ -516,6 +561,9 @@ function enemyTurn() {
     player.hp -= dmg;
     player.hp = max(player.hp, 0);
     battleMessage += " Enemy hits back for " + dmg + " dmg!";
+
+    // HIT => player jiggles for ~1 second
+    triggerJiggle(playerJiggle, -1, 3, 60);
   }
 
   // Small mana regen so it can keep casting
