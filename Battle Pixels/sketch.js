@@ -20,7 +20,7 @@ let enemy = null;
 // Battle
 let battleMenuOptions = ["Attack", "Fireball", "Heal"];
 let battleMenuIndex = 0;
-let battleState = "playerChoice"; // "playerChoice" | "win" | "lose"
+let battleState = "playerChoice"; // "playerChoice" | "enemyTurn" | "win" | "lose"
 let battleMessage = "";
 let lastRoll = null;             // D20 result for UI
 
@@ -221,7 +221,7 @@ function drawBattle() {
   } else {
     background(5, 25, 48);
   }
-
+}
   // Jiggle offsets (only applied to whoever is currently "hit")
   const pJ = getJiggleOffset(playerJiggle);
   const eJ = getJiggleOffset(enemyJiggle);
@@ -250,8 +250,13 @@ function drawBattle() {
     drawBattleEnd();
   }
 
-  // Battle message box + D20 display
-  drawBattleMessage();
+  // Battle menu or end message
+if (battleState === "playerChoice") {
+  drawBattleMenu();
+} else if (battleState === "enemyTurn") {
+  // Menu hidden during enemy turn - cleaner visual
+} else if (battleState === "win" || battleState === "lose") {
+  drawBattleEnd();
 }
 
 function drawHPBar(x, y, w, character, label) {
@@ -455,7 +460,7 @@ function playerChooseAction() {
     }
     return;
   }
-
+}
   // Spend mana
   player.mp -= cost;
 
@@ -530,9 +535,11 @@ function playerChooseAction() {
     return;
   }
 
-  // Enemy's turn if still alive
-  enemyTurn();
-}
+// Enemy's turn if still alive (with delay)
+  battleState = "enemyTurn";
+  setTimeout(() => {
+    enemyTurn();
+  }, 1500); // 1.5 second delay (1500 milliseconds)
 
 function enemyTurn() {
   // Aggressive AI: prefers Fireball strongly if it has mana
