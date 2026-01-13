@@ -309,7 +309,7 @@ function drawBattleMenu() {
   let boxX = (VIRTUAL_WIDTH - boxW) / 2;
   let boxY = VIRTUAL_HEIGHT - boxH - 4;
 
-  stroke(255);
+  //stroke(255);
   noFill();
   rect(boxX, boxY, boxW, boxH);
 
@@ -532,7 +532,7 @@ function playerChooseAction() {
     enemy.hp = 0;
     battleState = "win";
     battleMessage = "The " + enemy.name + " is defeated!";
-    return;
+    //return;
   }
 
 // Enemy's turn if still alive (with delay)
