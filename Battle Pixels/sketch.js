@@ -168,7 +168,6 @@ function drawMenu() {
   }
 }
 
-
 // --- CHARACTER SELECT ---
 function drawCharSelect() {
   if (bgSelect) {
@@ -221,7 +220,7 @@ function drawBattle() {
   } else {
     background(5, 25, 48);
   }
-}
+
   // Jiggle offsets (only applied to whoever is currently "hit")
   const pJ = getJiggleOffset(playerJiggle);
   const eJ = getJiggleOffset(enemyJiggle);
@@ -246,17 +245,11 @@ function drawBattle() {
   // Battle menu or end message
   if (battleState === "playerChoice") {
     drawBattleMenu();
+  } else if (battleState === "enemyTurn") {
+    // Menu hidden during enemy turn - cleaner visual
   } else if (battleState === "win" || battleState === "lose") {
     drawBattleEnd();
   }
-
-  // Battle menu or end message
-if (battleState === "playerChoice") {
-  drawBattleMenu();
-} else if (battleState === "enemyTurn") {
-  // Menu hidden during enemy turn - cleaner visual
-} else if (battleState === "win" || battleState === "lose") {
-  drawBattleEnd();
 }
 
 function drawHPBar(x, y, w, character, label) {
@@ -460,7 +453,7 @@ function playerChooseAction() {
     }
     return;
   }
-}
+
   // Spend mana
   player.mp -= cost;
 
@@ -511,7 +504,7 @@ function playerChooseAction() {
     }
 
   } else if (action === "Heal") {
-// HEAL IS PURELY RESTORATIVE NOW
+    // HEAL IS PURELY RESTORATIVE NOW
     base = 6 + floor(random(0, 4));  // base heal amount
     base = max(base, 1);
     value = applyD20Outcome(base, roll);
@@ -532,14 +525,15 @@ function playerChooseAction() {
     enemy.hp = 0;
     battleState = "win";
     battleMessage = "The " + enemy.name + " is defeated!";
-    //return;
+    return;
   }
 
-// Enemy's turn if still alive (with delay)
+  // Enemy's turn if still alive (with delay)
   battleState = "enemyTurn";
   setTimeout(() => {
     enemyTurn();
   }, 1500); // 1.5 second delay (1500 milliseconds)
+}
 
 function enemyTurn() {
   // Aggressive AI: prefers Fireball strongly if it has mana
